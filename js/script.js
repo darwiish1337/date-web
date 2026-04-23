@@ -1,4 +1,11 @@
 /**
+ * Project: Will You?
+ * Author: Darwish
+ * License: MIT
+ * All rights reserved. No part of this code may be removed or altered without attribution.
+ */
+
+/**
  * ValentineApp Class
  * Manages the interactive "Will You Go On a Date" experience.
  * Follows OOP principles for maintainability and scalability.
@@ -16,10 +23,12 @@ class ValentineApp {
         this.card = document.getElementById('card');
         this.yesOverlay = document.getElementById('yesOverlay');
         this.noOverlay = document.getElementById('noOverlay');
+        this.backBtn = document.getElementById('backBtn');
 
         // Bind methods to maintain context
         this.handleNoHover = this.handleNoHover.bind(this);
         this.handleYesClick = this.handleYesClick.bind(this);
+        this.handleBackClick = this.handleBackClick.bind(this);
         this.handleNoClick = this.handleNoClick.bind(this);
         this.closeNoOverlay = this.closeNoOverlay.bind(this);
         this.handleResize = this.handleResize.bind(this);
@@ -43,6 +52,10 @@ class ValentineApp {
 
         if (this.yesBtn) {
             this.yesBtn.addEventListener('click', this.handleYesClick);
+        }
+
+        if (this.backBtn) {
+            this.backBtn.addEventListener('click', this.handleBackClick);
         }
 
         window.addEventListener('resize', this.handleResize);
@@ -156,6 +169,15 @@ class ValentineApp {
     handleYesClick() {
         if (this.yesOverlay) {
             this.yesOverlay.classList.add('show');
+        }
+    }
+
+    /**
+     * Handles click on "Back" button in the "Yes" overlay
+     */
+    handleBackClick() {
+        if (this.yesOverlay) {
+            this.yesOverlay.classList.remove('show');
         }
     }
 
