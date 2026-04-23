@@ -105,13 +105,14 @@ body {
 .container {
   position: relative;
   z-index: 1;
-  width: 100%;
+  width: 100% !important;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column; /* Stack card and footer vertically */
-  align-items: center;
-  justify-content: center;
+  display: flex !important;
+  flex-direction: column !important; /* Force vertical stack */
+  align-items: center !important;
+  justify-content: center !important;
   padding: 40px 16px;
+  gap: 30px; /* Space between card and footer */
 }
 
 /* ─── CARD ───────────────────────────────────────────── */
@@ -120,7 +121,7 @@ body {
   border-radius: var(--radius-card);
   border: 1px solid rgba(232, 99, 122, 0.12);
   box-shadow: var(--shadow-card);
-  width: 90%; /* For mobile */
+  width: 100%; /* Take full width of parent flex container */
   max-width: 460px;
   position: relative;
   overflow: hidden; /* This MUST keep the button inside */
@@ -474,7 +475,7 @@ body {
 
 /* ─── FOOTER ─────────────────────────────────────────── */
 .footer {
-  margin-top: 30px; /* Space between card and footer */
+  margin-top: 0; /* Space managed by .container gap */
   padding: 10px 0;
   text-align: center;
   animation: fadeUp 0.8s 1s ease both;

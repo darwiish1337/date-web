@@ -65,6 +65,7 @@ class ValentineApp {
         window.onYes = this.handleYesClick;
         window.onNo = this.handleNoClick;
         window.closeNoOverlay = this.closeNoOverlay;
+        window.closeYesOverlay = this.handleBackClick; // Fallback for Back button
     }
 
     /**
@@ -223,5 +224,6 @@ class ValentineApp {
 
 // Initialize application when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
+    console.log("ValentineApp initialized by Darwish");
     new ValentineApp();
 });
